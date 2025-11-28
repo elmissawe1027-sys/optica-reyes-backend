@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Óptica Reyes</title>
+    <link rel="stylesheet" href="/static/styles.css"> 
+</head>
+<body>
+  <header>
+    <h1>Óptica Reyes</h1>
+    
+    <div id="user-profile-area">
+        <span id="user-display-name"></span>
+        
+        <button id="user-menu-button" type="button" onclick="toggleUserMenu(event)">...</button>
+        
+        <div id="user-menu-dropdown">
+            <a href="javascript:void(0)" onclick="mostrarSeccion('configuracion')">Configuración</a>
+            <a href="javascript:void(0)" onclick="cerrarSesion()">Cerrar Sesión</a>
+        </div>
+    </div>
+</header>
+    
+   <nav id="navegacion-principal">
+    <ul>
+        <li><a onclick="mostrarSeccion('mision')">Misión</a></li>
+        <li><a onclick="mostrarSeccion('vision')">Visión</a></li>
+        <li><a onclick="mostrarSeccion('armazones')">Armazones</a></li>
+        <li><a onclick="mostrarSeccion('clientes')">Clientes</a></li>
+    </ul>
+</nav>
+
+    <main>
+
+        <section id="inicio" class="active">
+            <h2>Inicio de Sesión</h2>
+            <div class="login-container">
+                <form id="form-inicio"> 
+                    <label for="usuario">Nombre de Usuario:</label>
+                    <input type="text" id="usuario" name="usuario" required>
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                    <button type="submit">Iniciar Sesión</button>
+                    <p>¿No tienes cuenta? <a href="#" onclick="mostrarSeccion('registro')">Regístrate aquí</a></p>
+                </form>
+                <img src="/static/images/inicio.jpg" alt="Bienvenida a Óptica Reyes">
+            </div>
+        </section> 
+        
+        <section id="registro">
+            <h2>Crear Cuenta Nueva</h2>
+            <form id="form-registro">
+                <label for="reg_usuario">Nombre de Usuario:</label>
+                <input type="text" id="reg_usuario" name="reg_usuario" required>
+                <label for="reg_email">Correo Electrónico:</label>
+                <input type="email" id="reg_email" name="reg_email" required>
+                <label for="reg_password">Contraseña:</label>
+                <input type="password" id="reg_password" name="reg_password" required>
+                <label for="reg_password2">Confirmar Contraseña:</label>
+                <input type="password" id="reg_password2" name="reg_password2" required>
+                <button type="submit">Registrarme</button>
+                <p>¿Ya tienes cuenta? <a href="#" onclick="mostrarSeccion('inicio')">Inicia sesión aquí</a></p>
+            </form>
+        </section>
+
+        <section id="mision">
+            <h2>Misión</h2>
+            <p>Brindar soluciones visuales de alta calidad, con un enfoque en la salud ocular, el diseño y el confort para cada cliente.</p>
+           <img src="/static/images/vison.jpg" alt="lentes promoción" style="width: 75%; margin-top: 20px;">
+        </section>
+
+        <section id="vision">
+            <h2>Visión</h2>
+            <p>Ser reconocidos como la óptica más confiable, moderna y humana del país, destacando por nuestra atención personalizada y productos innovadores.</p>
+            <img src="/static/images/misio.jpg" alt="lentes promoción" style="width: 75%; margin-top: 20px;">
+        </section>
+
+        <section id="armazones">
+            <h2>Nuestros Armazones</h2>
+            <div class="armazones-grid">
+                <div class="armazon-item">
+                    <img src="/static/images/metal.jpeg" alt="Armazón de Metal">
+                    <h3>Estilo Aviador (Metal)</h3>
+                    <p>Armazones ligeros y resistentes.</p>
+                    <p class="precio"><strong>$2,500 MXN</strong></p>
+                    <button class="btn-comprar" onclick="comprarProducto('Estilo Aviador (Metal)', '$2,500 MXN')">Comprar Ahora</button>
+                </div>
+                <div class="armazon-item">
+                    <img src="/static/images/Óculos trasparente de grau feminino.jpeg" alt="Armazón de Acetato">
+                    <h3>Diseño Moderno (Acetato)</h3>
+                    <p>Diseños modernos en múltiples colores.</p>
+                    <p class="precio"><strong>$3,100 MXN</strong></p>
+                    <button class="btn-comprar" onclick="comprarProducto('Diseño Moderno (Acetato)', '$3,100 MXN')">Comprar Ahora</button>
+                </div>
+                <div class="armazon-item">
+                    <img src="/static/images/GAFAS DE PASTA NEGRAS.jpeg" alt="Armazón de Pasta">
+                    <h3>Clásico (Pasta)</h3>
+                    <p>Clásicos y duraderos, perfectos para altas graduaciones.</p>
+                    <p class="precio"><strong>$2,800 MXN</strong></p>
+                    <button class="btn-comprar" onclick="comprarProducto('Clásico (Pasta)', '$2,800 MXN')">Comprar Ahora</button>
+                </div>
+                <div class="armazon-item">
+                    <img src="/static/images/Óculos Titanium Ultraleve.jpeg" alt="Armazón de Fibra de Carbono">
+                    <h3>Ultraligero (Fibra de Carbono)</h3>
+                    <p>Resistencia extrema y peso mínimo.</p>
+                    <p class="precio"><strong>$4,500 MXN</strong></p>
+                    <button class="btn-comprar" onclick="comprarProducto('Ultraligero (Fibra de Carbono)', '$4,500 MXN')">Comprar Ahora</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="clientes">
+            <h2>Reseñas de Clientes</h2>
+            <p>“La atención fue increíble y encontré el estilo que buscaba. ¡Totalmente recomendado!” – <strong>Salma Hayek</strong></p>
+            <p>“Me encanta la calidad de los armazones, se sienten premium.” – <strong>Gael García Bernal</strong></p>
+            <p>“Excelente trato y asesoramiento personalizado. Volveré pronto.” – <strong>Ana de la Reguera</strong></p>
+            <p>“Todo muy profesional, se nota que cuidan cada detalle.” – <strong>Diego Luna</strong></p>
+            <hr>
+            <p>“¡Estos lentes son una joya! Los uso hasta en mis streams.” – <strong>ElMariana</strong></p>
+            <p>“Me salvaron los ojos después de tantas horas frente al monitor.” – <strong>AuronPlay</strong></p>
+            <p>“Cómodos, estilosos y ligeros. ¡Los mejores!” – <strong>Rivers</strong></p>
+            <p>“Mis seguidores me preguntan dónde compré mis lentes... y claro, fue aquí.” – <strong>Ibai Llanos</strong></p>
+            <hr>
+            <h3>Deja tu propia reseña</h3>
+            <form id="form-reseña">
+                <label for="reseña_nombre">Tu Nombre:</label>
+                <input type="text" id="reseña_nombre" name="reseña_nombre" required>
+                <label for="reseña_rating">Calificación:</label>
+                <select id="reseña_rating" name="reseña_rating" required>
+                    <option value="" disabled selected>Elige una calificación</option>
+                    <option value="5">★★★★★ (5 estrellas)</option>
+                    <option value="4">★★★★☆ (4 estrellas)</option>
+                    <option value="3">★★★☆☆ (3 estrellas)</option>
+                    <option value="2">★★☆☆☆ (2 estrellas)</option>
+                    <option value="1">★☆☆☆☆ (1 estrella)</option>
+                </select>
+                <label for="reseña_mensaje">Tu Mensaje:</label>
+                <textarea id="reseña_mensaje" name="reseña_mensaje" rows="4" placeholder="Escribe tu experiencia aquí..." required></textarea>
+                <button type="submit">Enviar Reseña</button>
+            </form>
+        </section>
+
+        <section id="compra">
+            <h2>Finalizar Compra</h2>
+            <p>Estás a punto de adquirir un producto increíble.</p>
+            <div class="resumen-producto">
+                <h3>Producto:</h3>
+                <h4 id="compra-producto-nombre">---</h4>
+                <p class="precio" id="compra-producto-precio">---</p>
+            </div>
+            <hr>
+            <form id="form-compra">
+                <h3>Datos de Pago y Envío</h3>
+                <label for="compra_nombre">Nombre Completo:</label>
+                <input type="text" id="compra_nombre" name="compra_nombre" required>
+                <label for="compra_email">Correo Electrónico:</label>
+                <input type="email" id="compra_email" name="compra_email" required>
+                <label for="compra_direccion">Dirección de Envío:</label>
+                <textarea id="compra_direccion" name="compra_direccion" rows="3" placeholder="Calle, Número, Colonia, C.P." required></textarea>
+                <label for="compra_tarjeta">Número de Tarjeta:</label>
+                <input type="text" id="compra_tarjeta" name="compra_tarjeta" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+                <button type="submit">Confirmar y Pagar</button>
+            </form>
+        </section>
+
+        <section id="configuracion">
+            <h2>Configuración de la Cuenta</h2>
+            <p>Haz clic en tu foto para cambiarla.</p>
+
+            <div class="perfil-card">
+                <div class="perfil-imagen-container" onclick="document.getElementById('input-foto-oculto').click()">
+                    <img id="img-avatar-visual" src="https://cdn-icons-png.flaticon.com/512/6326/6326055.png" alt="Avatar">
+                    <div class="overlay-cambiar-foto">
+                        <span>📷 Cambiar</span>
+                    </div>
+                </div>
+
+                <input type="file" id="input-foto-oculto" style="display: none;" accept="image/*">
+
+                <div class="perfil-info">
+                    <h3 id="card-nombre">Usuario</h3>
+                    <p id="card-role">Cliente VIP</p>
+                    <span class="badge">Miembro</span>
+                </div>
+            </div>
+
+            <hr>
+
+            <h3>Actualizar Datos Personales</h3>
+            <form id="form-perfil">
+                <label for="perfil_usuario">Nombre de Usuario:</label>
+                <input type="text" id="perfil_usuario" name="perfil_usuario" placeholder="Nuevo nombre de usuario">
+                
+                <label for="perfil_email">Correo Electrónico:</label>
+                <input type="email" id="perfil_email" name="perfil_email" placeholder="Nuevo correo electrónico">
+                
+                <button type="submit">Guardar Cambios de Texto</button>
+            </form>
+
+            <hr style="margin-top: 2em;">
+
+            <h3>Cambiar Contraseña</h3>
+            <form id="form-password">
+                <label for="pass_actual">Contraseña Actual:</label>
+                <input type="password" id="pass_actual" name="pass_actual" required>
+                
+                <label for="pass_nueva">Nueva Contraseña:</label>
+                <input type="password" id="pass_nueva" name="pass_nueva" required>
+                
+                <label for="pass_confirmar">Confirmar Nueva Contraseña:</label>
+                <input type="password" id="pass_confirmar" name="pass_confirmar" required>
+                
+                <button type="submit">Cambiar Contraseña</button>
+            </form>
+            
+        </section>
+
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Óptica Reyes. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="/static/scripts.js"></script> 
+</body>
+</html>

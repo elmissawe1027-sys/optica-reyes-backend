@@ -1,0 +1,424 @@
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: #fff; 
+    color: #333; 
+    margin: 0; 
+    padding: 0; 
+}
+
+header, footer { 
+    background-color: #7B1E3B; /* Color principal: Rojo Borgoña Oscuro */
+    color: white; 
+    text-align: center; 
+    padding: 1em; 
+}
+
+/* --- ESTILO DE HEADER PARA EL MENÚ DE USUARIO --- */
+header {
+    position: relative; /* Necesario para posicionar el menú */
+}
+
+nav ul { 
+    list-style: none; 
+    display: flex; 
+    justify-content: center; 
+    background-color: #A52A2A; /* Color secundario: Marrón Rojizo */
+    padding: 0; 
+    margin: 0; 
+}
+
+nav ul li { 
+    margin: 0 1em; 
+}
+
+nav ul li a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+    cursor: pointer; 
+    padding: 0.8em 0;
+    display: block; 
+}
+
+nav ul li a:hover { 
+    text-decoration: underline; 
+}
+
+section { 
+    padding: 2em; 
+    max-width: 800px; 
+    margin: auto; 
+    display: none; /* Oculta todas las secciones por defecto */
+}
+
+section.active { 
+    display: block; /* Muestra la sección que tiene la clase 'active' */
+}
+
+/* --- ESTILOS DE FORMULARIO (GENERAL) --- */
+form { 
+    display: flex; 
+    flex-direction: column; 
+    padding: 1.5em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+form label, 
+form input, 
+form button,
+form select,
+form textarea { 
+    margin: 0.5em 0; 
+}
+
+form input,
+form select,
+form textarea { 
+    padding: 0.5em; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-family: inherit; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+form textarea {
+    resize: vertical; 
+    min-height: 100px;
+}
+
+form button { 
+    background-color: #7B1E3B; 
+    color: white; 
+    padding: 0.7em; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 1.1em;
+    margin-top: 1em;
+    width: auto; 
+    align-self: flex-start; 
+}
+
+form button:hover { 
+    background-color: #5c152c; 
+}
+
+/* --- ESTILO BORDE NEGRO PARA REGISTRO --- */
+#form-registro {
+    border: 1px solid #000;
+}
+
+/* --- ESTILOS DE ARMAZONES --- */
+.armazones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.armazon-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.armazon-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.armazon-item h3 {
+    color: #7B1E3B;
+    margin-bottom: 0.5rem;
+    font-size: 1.4em;
+    min-height: 2.8em; 
+}
+
+.armazon-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/2; 
+    object-fit: cover; 
+    border-radius: 6px; 
+    margin-bottom: 1rem;
+}
+
+.armazon-item .precio {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.armazon-item p {
+    flex-grow: 1;
+}
+
+.btn-comprar {
+    background-color: #7B1E3B; 
+    color: white; 
+    padding: 0.7em; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 1em;
+    width: 100%; 
+    margin-top: auto; 
+    transition: background-color 0.3s ease;
+}
+
+.btn-comprar:hover {
+    background-color: #5c152c;
+}
+
+/* --- ESTILOS SECCIÓN DE COMPRA --- */
+.resumen-producto {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin-bottom: 2em;
+}
+
+.resumen-producto h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.resumen-producto h4 {
+    font-size: 1.5em;
+    color: #7B1E3B; 
+    margin: 0.5em 0;
+}
+
+.resumen-producto .precio {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+#form-compra {
+    margin-top: 1.5em;
+}
+
+/* --- ESTILO AUTENTICACIÓN (NAV OCULTA) --- */
+#navegacion-principal {
+    display: none;
+}
+
+/* --- ESTILOS LAYOUT INICIO (FORM LADO A LADO) --- */
+.login-container {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.login-container form {
+    flex: 1;
+    min-width: 300px;
+    width: auto; 
+}
+
+.login-container img {
+    flex: 1;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 8px;
+    min-width: 300px;
+}
+
+/* --- ESTILOS MENÚ DE PERFIL DE USUARIO (...) --- */
+#user-profile-area {
+    display: none; 
+    position: absolute;
+    top: 50%;
+    right: 2em;
+    transform: translateY(-50%);
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+#user-display-name {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#user-menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8em;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#user-menu-dropdown {
+    display: none; 
+    position: absolute;
+    top: 120%; 
+    right: 0;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 100;
+    width: 160px; 
+}
+
+/* --- AQUÍ ESTÁ LA CORRECCIÓN CLAVE --- */
+/* Usamos el ID + Clase para que sea más fuerte y le ponemos !important */
+#user-menu-dropdown.show-dropdown {
+    display: block !important;
+}
+
+#user-menu-dropdown a {
+    display: block;
+    padding: 12px 16px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#user-menu-dropdown a:hover {
+    background-color: #f5f5f5;
+}
+/* --- ESTILOS TARJETA DE PERFIL (Estilo Control/Moderno) --- */
+
+.perfil-card {
+    display: flex;
+    align-items: center;
+    background-color: #fff; /* Fondo blanco limpio */
+    border: 1px solid #ddd;
+    border-radius: 12px; /* Bordes suavemente redondeados */
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Sombra elegante */
+    transition: transform 0.3s ease;
+}
+
+.perfil-card:hover {
+    transform: translateY(-2px); /* Efecto de elevación al pasar el mouse */
+}
+
+.perfil-imagen img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%; /* Hace la imagen redonda */
+    object-fit: cover;
+    border: 4px solid #7B1E3B; /* Borde grueso del color de tu marca */
+    margin-right: 25px;
+    padding: 2px; /* Pequeño espacio entre foto y borde */
+    background-color: white;
+}
+
+.perfil-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.perfil-info h3 {
+    margin: 0;
+    color: #222;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: capitalize;
+    line-height: 1.2;
+    min-height: auto; /* Sobrescribe reglas anteriores de h3 */
+    border: none; /* Quita bordes si había */
+}
+
+.perfil-info p {
+    margin: 5px 0 12px 0;
+    color: #666;
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+.badge {
+    display: inline-block;
+    background-color: #7B1E3B;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px; /* Forma de píldora */
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 5px rgba(123, 30, 59, 0.3);
+}
+
+/* Responsive para celulares */
+@media (max-width: 600px) {
+    .perfil-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .perfil-imagen img {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .perfil-info {
+        align-items: center;
+    }
+}
+/* --- ESTILOS NUEVOS PARA LA FOTO INTERACTIVA --- */
+
+.perfil-imagen-container {
+    position: relative; /* Necesario para poner el texto encima */
+    width: 110px;
+    height: 110px;
+    margin-right: 25px;
+    cursor: pointer; /* Manita de clic */
+    border-radius: 50%;
+    overflow: hidden; /* Para que nada se salga del círculo */
+    border: 4px solid #7B1E3B;
+}
+
+.perfil-imagen-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* La capa oscura con el texto "Cambiar" */
+.overlay-cambiar-foto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo negro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Invisible por defecto */
+    transition: opacity 0.3s ease;
+}
+
+.overlay-cambiar-foto span {
+    color: white;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Cuando pasas el mouse, se hace visible */
+.perfil-imagen-container:hover .overlay-cambiar-foto {
+    opacity: 1;
+}
