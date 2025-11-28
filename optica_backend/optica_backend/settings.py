@@ -8,7 +8,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -16,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5m&$w=r02_hf1zls&34s*fgw56+#1(_h^rj7yyz=3)a)y3t^@^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# En la nube lo ideal es False, pero déjalo en True un momento para ver errores si salen.
+# En producción lo ideal es False, pero déjalo en True un momento para ver errores si salen.
 DEBUG = True
 
 # IMPORTANTE: El asterisco permite que PythonAnywhere (la nube) muestre tu sitio
@@ -54,7 +53,7 @@ ROOT_URLCONF = 'optica_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # AQUÍ ESTABA EL ERROR: Ahora le decimos que busque en la carpeta 'templates'
+        # Configuración para que encuentre la carpeta 'templates'
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -103,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'es-mx' # Lo cambié a español de una vez
+LANGUAGE_CODE = 'es-mx' # Español México
 
 TIME_ZONE = 'UTC'
 
@@ -113,6 +112,7 @@ USE_TZ = True
 
 
 # --- CONFIGURACIÓN DE ARCHIVOS ESTÁTICOS (CSS, JS, IMÁGENES DEL SITIO) ---
+
 STATIC_URL = '/static/'
 
 # Esto le dice a Django: "Busca los estilos y scripts en la carpeta 'static' que creamos"
