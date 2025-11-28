@@ -75,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 precio: productoPrecio,
             };
             try {
-                const respuesta = await fetch('http://127.0.0.1:8000/api/crear-pedido/', { 
+                // CAMBIO: Ruta relativa
+                const respuesta = await fetch('/api/crear-pedido/', { 
                     method: 'POST', 
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(datosDelPedido) 
@@ -112,7 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 password: password
             };
             try {
-                const respuesta = await fetch('http://127.0.0.1:8000/api/registrar/', {
+                // CAMBIO: Ruta relativa
+                const respuesta = await fetch('/api/registrar/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(datosRegistro)
@@ -139,7 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const datosLogin = { username: usuario, password: password };
 
             try {
-                const respuesta = await fetch('http://127.0.0.1:8000/api/login/', {
+                // CAMBIO: Ruta relativa
+                const respuesta = await fetch('/api/login/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(datosLogin)
@@ -179,7 +182,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (email.trim() !== "") formData.append('email', email);
             
             try {
-                const respuesta = await fetch('http://127.0.0.1:8000/api/actualizar-perfil/', {
+                // CAMBIO: Ruta relativa
+                const respuesta = await fetch('/api/actualizar-perfil/', {
                     method: 'POST',
                     body: formData 
                 });
@@ -211,7 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 formData.append('username', usuarioActual); 
 
                 try {
-                    const res = await fetch('http://127.0.0.1:8000/api/actualizar-perfil/', {
+                    // CAMBIO: Ruta relativa
+                    const res = await fetch('/api/actualizar-perfil/', {
                         method: 'POST', body: formData
                     });
                     
@@ -247,7 +252,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 new_password: nueva
             };
             try {
-                const respuesta = await fetch('http://127.0.0.1:8000/api/cambiar-password/', {
+                // CAMBIO: Ruta relativa
+                const respuesta = await fetch('/api/cambiar-password/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(datosPassword)
